@@ -11,15 +11,15 @@ from torchvision import transforms
 
 
 def write_file(data, path):
+    """Writes byte file to specified path.
+
+    Args:
+        data (bytes): data to be written.
+        path (str): path to write data to.
+    """
+
     with open(path, "wb") as f:
         f.write(data.read())
-
-
-class Data(BaseModel):
-    style: UploadFile
-    content: UploadFile
-    alpha: str
-    preserve_color: str
 
 
 decoder = torch.load("data/decoder.pt")
@@ -33,6 +33,16 @@ app = FastAPI()
 
 @app.post("/generate")
 def main(style: UploadFile, content: UploadFile):
+    """Processes requests to return stylized image.
+
+    Args:
+        style (fastapi.UploadFile): A container with style image data.
+        content (fastapi.UploadFile): A container with content image data.
+
+    Returns:
+       FileResponse.
+       A container with stylized image data.
+    """
     style_format = style.content_type.split("/")[-1]
     content_format = content.content_type.split("/")[-1]
     style_name = "style." + style_format
