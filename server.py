@@ -5,7 +5,7 @@ import tempfile
 import os
 import torch
 from PIL import Image
-from function import style_transfer, coral
+from utils import style_transfer, coral
 from torchvision.utils import save_image
 from torchvision import transforms
 
