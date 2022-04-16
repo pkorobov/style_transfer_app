@@ -1,9 +1,16 @@
-# style_transfer_app
+# Style Transfer Bot
 
-## Run local server
+This is a simple style transfer app with a telegram bot interface
 
-```sh run_server.sh```
+### Architecture
 
-## Request example
+- A torch model for style transfer is hosted on a remote server
+- Requests are sent through a telegram bot with several dialogue options
 
-```sh request_example```
+<img src="transfer_diagram.png" width="600"/>
+
+### Used packages
+
+- `fastapi` and `uvicorn` for serving
+- `torch` and `torchvision` for neural network inference
+- `Pillow` for image operations
