@@ -1,6 +1,5 @@
 from fastapi import FastAPI, UploadFile
 from fastapi.responses import FileResponse
-from pydantic import BaseModel
 import tempfile
 import os
 import torch
