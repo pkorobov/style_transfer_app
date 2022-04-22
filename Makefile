@@ -15,3 +15,7 @@ run-server-and-bot:
 .PHONY: server-example
 server-example:
 	curl -F "content=@data/golden_gate.jpg" -F "style=@data/brushstrokes.jpg"  http://127.0.0.1:1489/generate  --output result_image.png
+
+.PHONY: lint
+lint:
+	pylint *.py
