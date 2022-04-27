@@ -1,12 +1,14 @@
-from fastapi import FastAPI, UploadFile
-from fastapi.responses import FileResponse
-import tempfile
 import os
+import tempfile
+
 import torch
 from PIL import Image
-from utils import style_transfer, coral
-from torchvision.utils import save_image
+from fastapi import FastAPI, UploadFile
+from fastapi.responses import FileResponse
 from torchvision import transforms
+from torchvision.utils import save_image
+
+from utils import style_transfer
 
 
 def write_file(data, path):
@@ -21,8 +23,8 @@ def write_file(data, path):
         f.write(data.read())
 
 
-decoder = torch.load("data/decoder.pt")
-vgg = torch.load("data/vgg.pt")
+decoder = torch.jit.load("data/decoder.pt")
+vgg = torch.jit.load("data/vgg.pt")
 decoder.eval()
 vgg.eval()
 trans = transforms.ToTensor()
