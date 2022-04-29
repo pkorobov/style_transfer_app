@@ -22,7 +22,7 @@ lint:
 
 .PHONY: tests
 tests:
-	PYTHONPATH=$(pwd) python tests/test_utils.py
+	python -m unittest
 
 .PHONY: docs
 docs:
