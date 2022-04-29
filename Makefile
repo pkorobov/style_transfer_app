@@ -21,5 +21,5 @@ lint:
 	pylint *.py
 
 .PHONY: tests
-lint:
+tests:
 	python tests/test_utils.py
