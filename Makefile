@@ -19,3 +19,7 @@ server-example:
 .PHONY: lint
 lint:
 	pylint *.py
+
+.PHONY: tests
+tests:
+	python tests/test_utils.py

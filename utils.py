@@ -71,6 +71,39 @@ def _mat_sqrt(x):
     return torch.mm(torch.mm(U, D.pow(0.5).diag()), V.t())
 
 
+def coral(source, target):
+    """Changes source colors to target ones.
+    Args:
+        source (torch.Tensor): The image tensor to transform colors.
+        target (torch.Tensor): The image tensor to get colors from.
+    Returns:
+       torch.Tensor.
+       Source image tensor with transformed colors.
+    """
+    source_f, source_f_mean, source_f_std = _calc_feat_flatten_mean_std(source)
+    source_f_norm = (source_f - source_f_mean.expand_as(source_f)) / source_f_std.expand_as(
+        source_f
+    )
+    source_f_cov_eye = torch.mm(source_f_norm, source_f_norm.t()) + torch.eye(3)
+
+    target_f, target_f_mean, target_f_std = _calc_feat_flatten_mean_std(target)
+    target_f_norm = (target_f - target_f_mean.expand_as(target_f)) / target_f_std.expand_as(
+        target_f
+    )
+    target_f_cov_eye = torch.mm(target_f_norm, target_f_norm.t()) + torch.eye(3)
+
+    source_f_norm_transfer = torch.mm(
+        _mat_sqrt(target_f_cov_eye),
+        torch.mm(torch.inverse(_mat_sqrt(source_f_cov_eye)), source_f_norm),
+    )
+
+    source_f_transfer = source_f_norm_transfer * target_f_std.expand_as(
+        source_f_norm
+    ) + target_f_mean.expand_as(source_f_norm)
+
+    return source_f_transfer.view(source.size())
+
+
 def style_transfer(vgg, decoder, content, style, alpha=1.0):
     """Performs style transfer to content based on style image.
 
