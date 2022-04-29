@@ -22,4 +22,8 @@ lint:
 
 .PHONY: tests
 tests:
-	python tests/test_utils.py
+	python -m unittest
+
+.PHONY: docs
+docs:
+	sphinx-build -b html docs/source/ docs/build/html
