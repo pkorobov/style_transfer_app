@@ -1,3 +1,5 @@
+import unittest
+import torch
 from utils import (
     _calc_feat_flatten_mean_std,
     adaptive_instance_normalization,
@@ -5,8 +7,6 @@ from utils import (
     _mat_sqrt,
     coral,
 )
-import unittest
-import torch
 
 
 class TestUtilsFunctions(unittest.TestCase):
