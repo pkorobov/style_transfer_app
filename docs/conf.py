@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath(".."))
 
 # -- Project information -----------------------------------------------------
 
-project = "StyleTransferApps"
+project = "StyleTransferApp"
 copyright = "2022, Pavel Korobov, Ivan Somov"
 author = "Pavel Korobov, Ivan Somov"
 
