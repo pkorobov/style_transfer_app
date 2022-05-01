@@ -1,3 +1,5 @@
+"""server.py is a script that runs FastAPI server with a neural network."""
+
 import os
 import tempfile
 
@@ -17,6 +19,7 @@ def write_file(data, path):
     Args:
         data (bytes): data to be written.
         path (str): path to write data to.
+
     """
     with open(path, "wb") as f:
         f.write(data.read())
@@ -42,6 +45,7 @@ def main(style: UploadFile, content: UploadFile):
     Returns:
        FileResponse.
        A container with stylized image data.
+
     """
     style_format = style.content_type.split("/")[-1]
     content_format = content.content_type.split("/")[-1]

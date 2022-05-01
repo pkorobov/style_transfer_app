@@ -1,3 +1,5 @@
+"""server.py is a script that runs a telegram bot."""
+
 import telebot
 import requests
 

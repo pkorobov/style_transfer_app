@@ -18,11 +18,12 @@ server-example:
 
 .PHONY: lint
 lint:
-	pylint *.py
+	pylint *.py -v
+	pydocstyle -v
 
 .PHONY: tests
 tests:
-	python -m unittest
+	python -m unittest -v
 
 .PHONY: docs
 docs:
