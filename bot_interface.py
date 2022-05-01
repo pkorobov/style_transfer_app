@@ -10,7 +10,7 @@ user_styles = {}
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    """Defines bot actions on /start command
+    """Define bot actions on /start command.
 
     Args:
         message (telebot.types.Message): The structure containing telegram message and its info
@@ -30,7 +30,7 @@ def start_message(message):
 
 @bot.message_handler(commands=['choose_style'])
 def request_style(message):
-    """Defines bot actions on /choose_style command
+    """Define bot actions on /choose_style command.
 
     Args:
         message (telebot.types.Message): The structure containing telegram message and its info
@@ -44,7 +44,7 @@ def request_style(message):
 
 @bot.message_handler(commands=['stylize_content'])
 def request_content(message):
-    """Defines bot actions on /stylize_content command
+    """Define bot actions on /stylize_content command.
 
     Args:
         message (telebot.types.Message): The structure containing telegram message and its info
@@ -61,7 +61,7 @@ def request_content(message):
 
 
 def specify_style(message):
-    """Puts a photo sent by user into user_styles dictionary
+    """Put a photo sent by user into user_styles dictionary.
 
     Args:
         message (telebot.types.Message): The structure containing telegram message and its info
@@ -83,7 +83,7 @@ def specify_style(message):
 
 
 def stylize_content(message):
-    """Takes a content image from user's message and runs neural network on it
+    """Take a content image from user's message and runs neural network on it.
 
     Args:
         message (telebot.types.Message): The structure containing telegram message and its info
