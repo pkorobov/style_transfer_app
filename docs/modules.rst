@@ -5,6 +5,5 @@ style_transfer_app
    :maxdepth: 4
 
    bot_interface
-   inference_test
    server
    utils
