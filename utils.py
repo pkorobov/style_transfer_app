@@ -1,8 +1,10 @@
+"""utils.py contains helper functions for style transfer."""
+
 import torch
 
 
 def calc_mean_std(feat, eps=1e-5):
-    """Calculates channel-wise means and stds.
+    """Calculate channel-wise means and stds.
 
     Args:
         feat (torch.Tensor): The tensor to get means and stds from.
@@ -22,7 +24,7 @@ def calc_mean_std(feat, eps=1e-5):
 
 
 def adaptive_instance_normalization(content_feat, style_feat):
-    """Changes content_feat means and stds to style_feat ones.
+    """Change content_feat means and stds to style_feat ones.
 
     Args:
         content_feat (torch.Tensor): The tensor to get means and stds from.
@@ -42,7 +44,7 @@ def adaptive_instance_normalization(content_feat, style_feat):
 
 
 def _calc_feat_flatten_mean_std(feat):
-    """Gets means and stds of flattened image tensor.
+    """Get means and stds of flattened image tensor.
 
     Args:
         feat (torch.Tensor): The tensor to get means and stds from.
@@ -58,7 +60,7 @@ def _calc_feat_flatten_mean_std(feat):
 
 
 def _mat_sqrt(x):
-    """Transforms x matrix to its square root.
+    """Transform x matrix to its square root.
 
     Args:
         feat (torch.Tensor): The tensor to get square root from.
@@ -72,7 +74,8 @@ def _mat_sqrt(x):
 
 
 def coral(source, target):
-    """Changes source colors to target ones.
+    """Change source colors to target ones.
+
     Args:
         source (torch.Tensor): The image tensor to transform colors.
         target (torch.Tensor): The image tensor to get colors from.
@@ -105,7 +108,7 @@ def coral(source, target):
 
 
 def style_transfer(vgg, decoder, content, style, alpha=1.0):
-    """Performs style transfer to content based on style image.
+    """Perform style transfer to content based on style image.
 
     Args:
         vgg (torch.nn.Module): A feature extractor net.

@@ -1,3 +1,5 @@
+"""server.py is a script that runs FastAPI server with a neural network."""
+
 import os
 import tempfile
 
@@ -12,13 +14,13 @@ from utils import style_transfer
 
 
 def write_file(data, path):
-    """Writes byte file to specified path.
+    """Write a byte file to the specified path.
 
     Args:
         data (bytes): data to be written.
         path (str): path to write data to.
-    """
 
+    """
     with open(path, "wb") as f:
         f.write(data.read())
 
@@ -34,7 +36,7 @@ app = FastAPI()
 
 @app.post("/generate")
 def main(style: UploadFile, content: UploadFile):
-    """Processes requests to return stylized image.
+    """Process requests to return a stylized image.
 
     Args:
         style (fastapi.UploadFile): A container with style image data.
@@ -43,6 +45,7 @@ def main(style: UploadFile, content: UploadFile):
     Returns:
        FileResponse.
        A container with stylized image data.
+
     """
     style_format = style.content_type.split("/")[-1]
     content_format = content.content_type.split("/")[-1]

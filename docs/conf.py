@@ -1,3 +1,5 @@
+"""conf.py helps to configure sphinx automated documentation."""
+
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
