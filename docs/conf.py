@@ -21,6 +21,7 @@ project = 'StyleTransferApps'
 copyright = '2022, Pavel Korobov, Ivan Somov'
 author = 'Pavel Korobov, Ivan Somov'
 
+autodoc_mock_imports = ["telebot"]
 
 # -- General configuration ---------------------------------------------------
 

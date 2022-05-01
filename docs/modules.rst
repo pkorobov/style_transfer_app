@@ -6,4 +6,5 @@ style_transfer_app
 
    bot_interface
    server
+   tests
    utils
