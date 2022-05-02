@@ -2,8 +2,9 @@
 project-demo: tests lint docs create-wheel
 
 .PHONY: run-app
+token="BOT_TOKEN"
 run-app:
-	python3 -m style_transfer_app
+	python3 -m style_transfer_app --token $(token)
 
 .PHONY: run-server-only
 port="1489"
