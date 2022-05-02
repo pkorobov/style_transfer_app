@@ -11,7 +11,14 @@ class StyleTransferBot(telebot.TeleBot):
         token: telegram bot token given by @BotFather
         host: host with a model running, 127.0.0.1 by default
     """
+
     def __init__(self, token, host="http://127.0.0.1:1489"):
+        """Initialize the user_styles dict and create a bot instance.
+
+        Args:
+            token: telegram bot token given by @BotFather
+            host: host with a model running, 127.0.0.1 by default
+        """
         super().__init__(token)
         self.host = host
         self.user_styles = {}

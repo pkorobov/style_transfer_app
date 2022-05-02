@@ -1,3 +1,5 @@
+"""__main__ runs server and bot simultaneously."""
+
 import subprocess
 import argparse
 from style_transfer_app.bot_interface import StyleTransferBot
