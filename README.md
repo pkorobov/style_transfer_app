@@ -18,6 +18,12 @@ This is a simple style transfer app with a telegram bot interface
 
 ### Deployment
 
-You can run a server using command `make run-bot-and-server`
+You can run a server using command `python3 -m style_transfer_app --token %specify token given by @BotFather%`
 
-You can test bot here: https://t.me/MSU_style_transfer_bot
+The bot can be tested here: https://t.me/MSU_style_transfer_bot \
+Use ```/start``` to begin, then you can use the ```/stylize_content``` command. \
+If you want to change a chosen style, use ```/choose_style```.
+
+### Create distribution
+
+You can create wheel and tar archive with tests and docs using the command ```python3 -m build```
