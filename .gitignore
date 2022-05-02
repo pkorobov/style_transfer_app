@@ -3,3 +3,4 @@ docs/_build
 *.png
 .DS_Store
 **/.DS_Store
+dist/*
