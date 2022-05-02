@@ -25,10 +25,14 @@ def write_file(data, path):
         f.write(data.read())
 
 
-decoder = torch.jit.load("data/decoder.pt")
-vgg = torch.jit.load("data/vgg.pt")
+decoder_path = os.path.join(os.path.dirname(__file__), "models/decoder.pt")
+decoder = torch.jit.load(decoder_path)
 decoder.eval()
+
+vgg_path = os.path.join(os.path.dirname(__file__), "models/vgg.pt")
+vgg = torch.jit.load(vgg_path)
 vgg.eval()
+
 trans = transforms.ToTensor()
 
 app = FastAPI()

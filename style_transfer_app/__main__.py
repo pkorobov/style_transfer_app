@@ -1,7 +1,8 @@
 """__main__ runs server and bot simultaneously."""
 
-import subprocess
 import argparse
+import threading
+import uvicorn
 from style_transfer_app.bot_interface import StyleTransferBot
 
 
@@ -13,15 +14,11 @@ def main():
     parser.add_argument('--port', default=1489)
     args = parser.parse_args()
 
-    with subprocess.Popen([
-            "uvicorn",
-            "style_transfer_app.server:app",
-            f"--host={args.host}",
-            f"--port={args.port}",
-            "--reload"
-    ]):
-        bot = StyleTransferBot(token=args.token, host=f'http://{args.host}:{args.port}')
-        bot.infinity_polling()
+    bot = StyleTransferBot(token=args.token, host=f'http://{args.host}:{args.port}')
+    thread = threading.Thread(target=bot.infinity_polling)
+    thread.start()
+    uvicorn.run("style_transfer_app.server:app", host=args.host, port=args.port)
+    thread.join()
 
 
 main()
