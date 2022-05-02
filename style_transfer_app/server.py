@@ -10,7 +10,7 @@ from fastapi.responses import FileResponse
 from torchvision import transforms
 from torchvision.utils import save_image
 
-from utils import style_transfer
+from style_transfer_app.utils import style_transfer
 
 
 def write_file(data, path):
@@ -35,7 +35,7 @@ app = FastAPI()
 
 
 @app.post("/generate")
-def main(style: UploadFile, content: UploadFile):
+def generate(style: UploadFile, content: UploadFile):
     """Process requests to return a stylized image.
 
     Args:

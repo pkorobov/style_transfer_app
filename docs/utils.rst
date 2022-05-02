@@ -1,7 +1,7 @@
 utils module
 ============
 
-.. automodule:: utils
+.. automodule:: style_transfer_app.utils
    :members:
    :undoc-members:
    :show-inheritance:

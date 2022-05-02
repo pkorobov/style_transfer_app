@@ -1,7 +1,7 @@
 bot\_interface module
 =====================
 
-.. automodule:: bot_interface
+.. automodule:: style_transfer_app.bot_interface
    :members:
    :undoc-members:
    :show-inheritance:

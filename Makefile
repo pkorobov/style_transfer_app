@@ -5,7 +5,7 @@ project-demo: tests lint docs
 port="1489"
 host="127.0.0.1"
 run-server:
-	uvicorn server:app --host=$(host) --port=$(port) --reload
+	uvicorn style_transfer_app.server:app --host=$(host) --port=$(port) --reload
 
 .PHONY: run-bot
 run-bot:
