@@ -8,3 +8,4 @@ pydocstyle
 pylint
 sphinx
 requests
+python-multipart
