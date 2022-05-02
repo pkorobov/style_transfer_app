@@ -1,3 +1,6 @@
+.PHONY: project-demo
+project-demo: tests lint docs
+
 .PHONY: run-server
 port="1489"
 host="127.0.0.1"
@@ -18,8 +21,8 @@ server-example:
 
 .PHONY: lint
 lint:
-	pylint *.py -v
-	pydocstyle -v
+	pylint */*.py -v
+	pydocstyle */*.py -v
 
 .PHONY: tests
 tests:
@@ -28,3 +31,7 @@ tests:
 .PHONY: docs
 docs:
 	sphinx-build -b html docs/ docs/_build
+
+.PHONY: clean
+clean:
+	rm -rf docs/_build
