@@ -24,7 +24,7 @@ The bot can be tested here: https://t.me/MSU_style_transfer_bot \
 Use ```/start``` to begin, then you can use the ```/stylize_content``` command. \
 If you want to change a chosen style, use ```/choose_style```.
 
-Requires ```python >= 3.9```
+Tested on ```python 3.8-3.9```
 
 ### Create distribution
 
