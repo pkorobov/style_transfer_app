@@ -2,7 +2,7 @@
 
 import unittest
 import torch
-from utils import (
+from style_transfer_app.utils import (
     _calc_feat_flatten_mean_std,
     adaptive_instance_normalization,
     calc_mean_std,

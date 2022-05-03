@@ -10,7 +10,7 @@ from fastapi.responses import FileResponse
 from torchvision import transforms
 from torchvision.utils import save_image
 
-from utils import style_transfer
+from style_transfer_app.utils import style_transfer
 
 
 def write_file(data, path):
@@ -25,17 +25,21 @@ def write_file(data, path):
         f.write(data.read())
 
 
-decoder = torch.jit.load("data/decoder.pt")
-vgg = torch.jit.load("data/vgg.pt")
+decoder_path = os.path.join(os.path.dirname(__file__), "models/decoder.pt")
+decoder = torch.jit.load(decoder_path)
 decoder.eval()
+
+vgg_path = os.path.join(os.path.dirname(__file__), "models/vgg.pt")
+vgg = torch.jit.load(vgg_path)
 vgg.eval()
+
 trans = transforms.ToTensor()
 
 app = FastAPI()
 
 
 @app.post("/generate")
-def main(style: UploadFile, content: UploadFile):
+def generate(style: UploadFile, content: UploadFile):
     """Process requests to return a stylized image.
 
     Args:
