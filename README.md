@@ -24,6 +24,8 @@ The bot can be tested here: https://t.me/MSU_style_transfer_bot \
 Use ```/start``` to begin, then you can use the ```/stylize_content``` command. \
 If you want to change a chosen style, use ```/choose_style```.
 
+Requires ```python >= 3.9```
+
 ### Create distribution
 
 You can create wheel and tar archive with tests and docs using the command ```python3 -m build```
