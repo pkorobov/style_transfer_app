@@ -9,3 +9,4 @@ pylint
 sphinx
 requests
 python-multipart
+build
